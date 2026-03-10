@@ -1,3 +1,11 @@
+const http = require('http');
+
+// This "pings" the hosting service to keep the bot alive
+http.createServer((req, res) => {
+  res.write('Bot is running!');
+  res.end();
+}).listen(8080);
+
 const mineflayer = require('mineflayer')
 
 const bot = mineflayer.createBot({
