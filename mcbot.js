@@ -1,10 +1,12 @@
 const http = require('http');
+const port = process.env.PORT || 8080;
 
-// This "pings" the hosting service to keep the bot alive
 http.createServer((req, res) => {
-  res.write('Bot is running!');
-  res.end();
-}).listen(8080);
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Bot is running\n');
+}).listen(port, () => {
+  console.log(`Web server listening on port ${port}`);
+});
 
 const mineflayer = require('mineflayer')
 
